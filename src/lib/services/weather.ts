@@ -18,12 +18,17 @@ export const getWeatherByCoordinates = async (lat: number, lon: number): Promise
   }
 };
 
-export const getHistoricalWeather = async (lat: number, lon: number): Promise<HistoricalWeatherResponse> => {
+export const getHistoricalWeather = async (
+  lat: number,
+  lon: number,
+  range: '1' | '3' | '30'
+): Promise<HistoricalWeatherResponse> => {
   try {
     const response = await axios.get<HistoricalWeatherResponse>(`${API_URL}weather/history`, {
       params: {
         lat,
-        lon
+        lon,
+        range,
       }
     });
     return response.data;
