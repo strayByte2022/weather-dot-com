@@ -5,7 +5,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const getWeatherByCoordinates = async (lat: number, lon: number): Promise<WeatherResponse> => {
   try {
-    const response = await axios.get<WeatherResponse>(`${API_URL}weather`, {
+    const response = await axios.get<WeatherResponse>(`${API_URL}weather/direct`, {
       params: {
         lat,
         lon
